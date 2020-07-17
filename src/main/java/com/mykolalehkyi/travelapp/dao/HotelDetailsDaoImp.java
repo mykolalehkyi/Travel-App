@@ -55,10 +55,14 @@ public class HotelDetailsDaoImp implements HotelDetailsDao{
     }
 
     @Override
-    public List<Hotel> selectHotelsByNameAndByCountry(String hotelName, String country) {
+    public List<Hotel> selectHotelsByNameAndByCountryAndStars(String hotelName, String country, Integer stars) {
         Criteria crit=sessionFactory.getCurrentSession().createCriteria(Hotel.class);
-        crit.add(Restrictions.eq("hotelName", hotelName));
+        if (hotelName != null && !hotelName.isEmpty())
+        crit.add(Restrictions.ilike("name", "%"+hotelName+"%"));
+        if (country != null && !country.isEmpty())
         crit.add(Restrictions.eq("country", country));
+        if (stars != null)
+            crit.add(Restrictions.eq("stars", stars));
         return crit.list();
     }
 }

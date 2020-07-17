@@ -29,8 +29,8 @@
 </head>
 <body>
 	<h1>Travel App</h1>
-	<h2>${message}</h2>
-
+	<h2>${message}</h2><br>
+	<h2>Filter by</h2>
 	<form action="" method="get">
 		<label for="hotelName">Write hotel name:</label>
 		<input type="text" placeholder="Write hotel name" name="hotelName" id ="hotelName">
@@ -40,6 +40,17 @@
 			<c:forEach items="${countries}" var="country">
 					<option value='<c:out value="${country}"/>'>${country}</option>
 			</c:forEach>
+		</select>
+		<label for="stars">Amount of stars:</label>
+		<select name="stars" id="stars">
+			<option value=""></option>
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5</option>
+			<option value="6">6</option>
+			<option value="7">7</option>
 		</select>
 		<input type="submit" value="Search">
 	</form>

@@ -11,5 +11,5 @@ public interface HotelDetailsDao {
     List<Hotel> loadAllHotels();
     List<Room> loadAllHotelRooms(String hotelName);
     List<String> selectDistinctCountries();
-    List<Hotel> selectHotelsByNameAndByCountry(String hotelName, String country);
+    List<Hotel> selectHotelsByNameAndByCountryAndStars(String hotelName, String country,Integer stars);
 }

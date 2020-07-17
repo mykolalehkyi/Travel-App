@@ -1,15 +1,14 @@
 package com.mykolalehkyi.travelapp.controller;
 
 import java.security.Principal;
-import java.util.List;
 
 import com.mykolalehkyi.travelapp.dao.HotelDetailsDao;
-import com.mykolalehkyi.travelapp.model.Hotel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class MainContoller {
@@ -18,10 +17,14 @@ public class MainContoller {
   HotelDetailsDao hotelDetailsDao;
 
   @GetMapping("/")
-  public String index(Model model, Principal principal) {
+  public String index(Model model, Principal principal,
+                      @RequestParam(required=false,name="hotelName") String hotelName,
+                      @RequestParam(required=false,name="country") String country,
+                      @RequestParam(required=false,name="stars") Integer stars) {
     model.addAttribute("message", "You are logged in as " + principal.getName());
-    model.addAttribute("hotels", hotelDetailsDao.loadAllHotels());
     model.addAttribute("countries",hotelDetailsDao.selectDistinctCountries());
+    model.addAttribute("hotels", hotelDetailsDao.selectHotelsByNameAndByCountryAndStars(hotelName,country, stars));
+//      model.addAttribute("hotels", hotelDetailsDao.loadAllHotels());
     return "index";
   }
 

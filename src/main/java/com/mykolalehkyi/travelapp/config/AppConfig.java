@@ -3,6 +3,8 @@ package com.mykolalehkyi.travelapp.config;
 import java.util.Properties;
 
 import com.mykolalehkyi.travelapp.model.Authorities;
+import com.mykolalehkyi.travelapp.model.Hotel;
+import com.mykolalehkyi.travelapp.model.Room;
 import com.mykolalehkyi.travelapp.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -52,7 +54,7 @@ public class AppConfig {
     props.put(C3P0_MAX_STATEMENTS, env.getProperty("hibernate.c3p0.max_statements"));
 
     factoryBean.setHibernateProperties(props);
-    factoryBean.setAnnotatedClasses(User.class, Authorities.class);
+    factoryBean.setAnnotatedClasses(User.class, Authorities.class, Hotel.class, Room.class);
     
     return factoryBean;
   }

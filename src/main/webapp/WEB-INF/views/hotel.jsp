@@ -30,34 +30,24 @@
 <body>
 	<h1>Travel App</h1>
 	<h2>${message}</h2>
-
-	<form action="" method="get">
-		<label for="hotelName">Write hotel name:</label>
-		<input type="text" placeholder="Write hotel name" name="hotelName" id ="hotelName">
-		<label for="country">Choose a country:</label>
-		<select name="country" id="country">
-			<option value=""></option>
-			<c:forEach items="${countries}" var="country">
-					<option value='<c:out value="${country}"/>'>${country}</option>
-			</c:forEach>
-		</select>
-		<input type="submit" value="Search">
-	</form>
-
-	<h1>Hotels</h1>
+	<h1>${hotel.name}</h1>
+	<p>${hotel.country}</p>
+	<p>${hotel.stars}</p>
+	<p>${hotel.description}</p>
+	<h1>Rooms</h1>
 	<table>
 		<tr>
 			<th>Name</th>
-			<th>Country</th>
-			<th>Stars</th>
 			<th>Description</th>
+			<th>Price</th>
+			<th>Available?</th>
 		</tr>
-		<c:forEach items="${hotels}" var="hotel">
-			<tr data-href="./hotel/${hotel.name}">
-				<td><c:out value="${hotel.name}"/></td>
-				<td><c:out value="${hotel.country}"/></td>
-				<td><c:out value="${hotel.stars}"/></td>
-				<td><c:out value="${hotel.description}"/></td>
+		<c:forEach items="${rooms}" var="room">
+			<tr data-href="./${hotel.name}/${room.name}">
+				<td><c:out value="${room.name}"/></td>
+				<td><c:out value="${room.description}"/></td>
+				<td><c:out value="${room.price}"/>$</td>
+				<td><button>Book now</button></td>
 			</tr>
 		</c:forEach>
 	</table>

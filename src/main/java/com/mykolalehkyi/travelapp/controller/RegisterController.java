@@ -38,21 +38,12 @@ public class RegisterController {
         user.setPassword(request.getParameter("password"));
         user.setPasswordConfirm(request.getParameter("passwordConfirm"));
         user.setEmail(request.getParameter("email"));
-//        String first_name = request.getParameter("firstname");
-//        String last_name = request.getParameter("lastname");
-//        String username = request.getParameter("username");
-//        String password = request.getParameter("password");
-//        String passwordConfirm = request.getParameter("passwordConfirm");
-//        String email = request.getParameter("email");
-
 
         if(user.getFirstname().isEmpty() || user.getLastname().isEmpty() || user.getUsername().isEmpty() ||
                 user.getPassword().isEmpty() || user.getPasswordConfirm().isEmpty() || user.getEmail().isEmpty()|| (!user.getPasswordConfirm().equals(user.getPassword())) )
         {
             System.out.println("something need to fulfill");
             //TODO return that something need to fulfill
-//            RequestDispatcher req = request.getRequestDispatcher("register_1.jsp");
-//            req.include(request, response);
         }
         else {
             if (userDetailsDao.findUserByUsername(user.getUsername()) != null) {
@@ -60,13 +51,7 @@ public class RegisterController {
             }
             userDetailsDao.save(user);
             securityService.autoLogin(user.getUsername(), user.getPasswordConfirm());
-            System.out.println("user saved and loged");
             return "redirect:/";
-//            new org.springframework.security.core.userdetails.User.UserBuilder().
-//            User user = new User();
-
-//            RequestDispatcher req = request.getRequestDispatcher("register_2.jsp");
-//            req.forward(request, response);
         }
 
         return "registration";

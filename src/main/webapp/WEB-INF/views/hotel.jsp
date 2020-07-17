@@ -7,6 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Travel App</title>
 	<style>
+		/*dfsfs*/
 		table {
 			border-collapse: collapse;
 			width: 100%;
@@ -24,6 +25,10 @@
 
 		tr[data-href]{
 			cursor: pointer;
+		}
+
+		tr:hover{
+			background-color:#ffcc00;
 		}
 	</style>
 </head>

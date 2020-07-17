@@ -25,6 +25,9 @@
 		tr[data-href]{
 			cursor: pointer;
 		}
+		tr:hover{
+			background-color:#ffcc00;
+		}
 	</style>
 </head>
 <body>

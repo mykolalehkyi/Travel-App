@@ -33,6 +33,9 @@ public class User {
   @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
   private Set<Authorities> authorities = new HashSet<>();
 
+  @OneToMany(mappedBy = "user")
+  private Set<Order> orders = new HashSet<>();
+
   public User() {
   }
 

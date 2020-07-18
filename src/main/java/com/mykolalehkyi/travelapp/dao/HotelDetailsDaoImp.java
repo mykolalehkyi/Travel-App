@@ -1,6 +1,7 @@
 package com.mykolalehkyi.travelapp.dao;
 
 import com.mykolalehkyi.travelapp.model.Hotel;
+import com.mykolalehkyi.travelapp.model.Order;
 import com.mykolalehkyi.travelapp.model.Room;
 
 import org.hibernate.Criteria;
@@ -29,6 +30,14 @@ public class HotelDetailsDaoImp implements HotelDetailsDao{
     }
 
     @Override
+    public Room findHotelRoomByName(String hotelName, String roomName) {
+        Criteria criteria=sessionFactory.getCurrentSession().createCriteria(Room.class);
+            criteria.add(Restrictions.eq("name", roomName));
+            criteria.add(Restrictions.eq("hotel", findHotelByName(hotelName)));
+        return (Room) criteria.uniqueResult();
+    }
+
+    @Override
     public void save(Hotel hotel) {
         sessionFactory.getCurrentSession().save(hotel);
     }
@@ -36,6 +45,11 @@ public class HotelDetailsDaoImp implements HotelDetailsDao{
     @Override
     public void save(Room room) {
         sessionFactory.getCurrentSession().save(room);
+    }
+
+    @Override
+    public void save(Order order) {
+        sessionFactory.getCurrentSession().save(order);
     }
 
     @Override
@@ -76,5 +90,22 @@ public class HotelDetailsDaoImp implements HotelDetailsDao{
         if (stars != null)
             criteria.add(Restrictions.eq("stars", stars));
         return criteria.list();
+    }
+
+    @Override
+    public Boolean checkOrderOverlapping(Order order, Room room) {
+        Criteria criteria=sessionFactory.getCurrentSession().createCriteria(Order.class);
+        criteria.add(
+            Restrictions.and(
+                    Restrictions.not(
+                            Restrictions.or(
+                                    Restrictions.lt("dateEnd",order.getDateBegin()),
+                                    Restrictions.gt("dateBegin",order.getDateEnd())
+                            )
+                    ),
+                    Restrictions.eq("room",room)
+            )
+        );
+        return criteria.list().size()==0;
     }
 }

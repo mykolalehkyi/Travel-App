@@ -1,6 +1,8 @@
 package com.mykolalehkyi.travelapp.model;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 public class Room {
@@ -12,6 +14,9 @@ public class Room {
     private Double price;
     @ManyToOne
     private Hotel hotel;
+
+    @OneToMany(mappedBy = "room")
+    private Set<Order> orders = new HashSet<>();
 
     public Integer getId() {
         return id;

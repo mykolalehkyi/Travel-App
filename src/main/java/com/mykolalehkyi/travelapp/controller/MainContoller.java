@@ -86,6 +86,22 @@ public class MainContoller {
     return "management";
   }
 
+  @GetMapping("/management/users")
+  public String users(Model model, Principal principal) {
+    model.addAttribute("message", "You are logged in as " + principal.getName());
+    model.addAttribute("users", userDetailsDao.loadAllUsers());
+    return "users";
+  }
+
+  @GetMapping("/management/user/{userName}")
+  public String users(Model model, Principal principal,
+                      @PathVariable("userName") String userName) {
+    model.addAttribute("message", "You are logged in as " + principal.getName());
+    model.addAttribute("user", userDetailsDao.findUserByUsername(userName));
+    model.addAttribute("orders",hotelDetailsDao.loadAllUserOrders(userDetailsDao.findUserByUsername(userName)));
+    return "userOrders";
+  }
+
   @PostMapping("/management/addHotel")
   public String addHotel(Model model, Principal principal,
                          @RequestParam(required=false,name="hotelName") String hotelName,

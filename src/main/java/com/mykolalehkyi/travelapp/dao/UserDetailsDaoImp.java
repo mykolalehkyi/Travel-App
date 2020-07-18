@@ -1,6 +1,8 @@
 package com.mykolalehkyi.travelapp.dao;
 
 import com.mykolalehkyi.travelapp.model.Authorities;
+import com.mykolalehkyi.travelapp.model.Hotel;
+import org.hibernate.Criteria;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -10,6 +12,7 @@ import com.mykolalehkyi.travelapp.model.User;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.HashSet;
+import java.util.List;
 
 @Repository
 @Transactional
@@ -36,5 +39,11 @@ public class UserDetailsDaoImp implements UserDetailsDao {
     authorities.add(authority);
     user.setAuthorities(authorities);
     sessionFactory.getCurrentSession().save(user);
+  }
+
+  @Override
+  public List<User> loadAllUsers() {
+    Criteria criteria=sessionFactory.getCurrentSession().createCriteria(User.class);
+    return criteria.list();
   }
 }

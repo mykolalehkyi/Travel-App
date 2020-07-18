@@ -4,6 +4,7 @@ import com.mykolalehkyi.travelapp.model.Hotel;
 import com.mykolalehkyi.travelapp.model.Order;
 import com.mykolalehkyi.travelapp.model.Room;
 
+import com.mykolalehkyi.travelapp.model.User;
 import org.hibernate.Criteria;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Projections;
@@ -63,6 +64,13 @@ public class HotelDetailsDaoImp implements HotelDetailsDao{
         query.setString("hotel",hotelName);
         return query.list();
 
+    }
+
+    @Override
+    public List<Order> loadAllUserOrders(User user) {
+        Criteria criteria=sessionFactory.getCurrentSession().createCriteria(Order.class);
+        criteria.add(Restrictions.eq("user",user));
+        return criteria.list();
     }
 
     @Override

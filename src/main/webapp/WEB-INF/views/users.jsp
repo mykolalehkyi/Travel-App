@@ -35,8 +35,8 @@
 	<h2>${message}</h2><br>
 	<h2>Filter by</h2>
 	<form action="" method="get">
-		<label for="username">Write user name:</label>
-		<input type="text" placeholder="Write user name" name="username" id ="username">
+		<label for="userName">Write user name:</label>
+		<input type="text" placeholder="Write user name" name="userName" id ="userName">
 		<input type="submit" value="Search">
 	</form>
 

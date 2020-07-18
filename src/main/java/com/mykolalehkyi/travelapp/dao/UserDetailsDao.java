@@ -9,4 +9,5 @@ public interface UserDetailsDao {
   User findUserByUsername(String username);
   void save(User user);
   List<User> loadAllUsers();
+  List<User> loadAllUsersWithUsername(String username);
 }

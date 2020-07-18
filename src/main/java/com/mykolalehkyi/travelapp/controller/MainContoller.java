@@ -87,14 +87,15 @@ public class MainContoller {
   }
 
   @GetMapping("/management/users")
-  public String users(Model model, Principal principal) {
+  public String users(Model model, Principal principal,
+                      @RequestParam(required=false,name="userName") String userName) {
     model.addAttribute("message", "You are logged in as " + principal.getName());
-    model.addAttribute("users", userDetailsDao.loadAllUsers());
+    model.addAttribute("users", userDetailsDao.loadAllUsersWithUsername(userName));
     return "users";
   }
 
   @GetMapping("/management/user/{userName}")
-  public String users(Model model, Principal principal,
+  public String userOrders(Model model, Principal principal,
                       @PathVariable("userName") String userName) {
     model.addAttribute("message", "You are logged in as " + principal.getName());
     model.addAttribute("user", userDetailsDao.findUserByUsername(userName));

@@ -4,6 +4,7 @@ import com.mykolalehkyi.travelapp.model.Authorities;
 import com.mykolalehkyi.travelapp.model.Hotel;
 import org.hibernate.Criteria;
 import org.hibernate.SessionFactory;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Repository;
@@ -44,6 +45,14 @@ public class UserDetailsDaoImp implements UserDetailsDao {
   @Override
   public List<User> loadAllUsers() {
     Criteria criteria=sessionFactory.getCurrentSession().createCriteria(User.class);
+    return criteria.list();
+  }
+
+  @Override
+  public List<User> loadAllUsersWithUsername(String username) {
+    Criteria criteria=sessionFactory.getCurrentSession().createCriteria(User.class);
+    if (username!=null && !username.isEmpty())
+      criteria.add(Restrictions.ilike(  "username","%"+username+"%"));
     return criteria.list();
   }
 }

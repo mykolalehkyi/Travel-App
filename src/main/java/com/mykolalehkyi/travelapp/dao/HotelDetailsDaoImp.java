@@ -34,6 +34,11 @@ public class HotelDetailsDaoImp implements HotelDetailsDao{
     }
 
     @Override
+    public void save(Room room) {
+        sessionFactory.getCurrentSession().save(room);
+    }
+
+    @Override
     public List<Hotel> loadAllHotels() {
         return sessionFactory.getCurrentSession().createQuery("from Hotel",Hotel.class).list();
     }
@@ -48,21 +53,28 @@ public class HotelDetailsDaoImp implements HotelDetailsDao{
 
     @Override
     public List<String> selectDistinctCountries() {
-        Criteria crit=sessionFactory.getCurrentSession().createCriteria(Hotel.class);
-        crit.setProjection(Projections.distinct(Projections.property("country")));
-        List<String> result = crit.list();
+        Criteria criteria=sessionFactory.getCurrentSession().createCriteria(Hotel.class);
+        criteria.setProjection(Projections.distinct(Projections.property("country")));
+        List<String> result = criteria.list();
         return result;
     }
 
     @Override
+    public List<String> selectNamesOfHotels() {
+        Criteria criteria=sessionFactory.getCurrentSession().createCriteria(Hotel.class);
+        criteria.setProjection(Projections.property("name"));
+        return criteria.list();
+    }
+
+    @Override
     public List<Hotel> selectHotelsByNameAndByCountryAndStars(String hotelName, String country, Integer stars) {
-        Criteria crit=sessionFactory.getCurrentSession().createCriteria(Hotel.class);
+        Criteria criteria=sessionFactory.getCurrentSession().createCriteria(Hotel.class);
         if (hotelName != null && !hotelName.isEmpty())
-        crit.add(Restrictions.ilike("name", "%"+hotelName+"%"));
+        criteria.add(Restrictions.ilike("name", "%"+hotelName+"%"));
         if (country != null && !country.isEmpty())
-        crit.add(Restrictions.eq("country", country));
+        criteria.add(Restrictions.eq("country", country));
         if (stars != null)
-            crit.add(Restrictions.eq("stars", stars));
-        return crit.list();
+            criteria.add(Restrictions.eq("stars", stars));
+        return criteria.list();
     }
 }

@@ -24,7 +24,7 @@
 							</p>
 						</div>
 					</div>
-					<div class="col-md-4 col-md-pull-7">
+					<div class="col-md-5 col-md-pull-7">
 						<div class="booking-form">
 							<form action="" method="post">
 								<div class="form-group">

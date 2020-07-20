@@ -1,42 +1,14 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Travel App</title>
-	<style>
-		table {
-			border-collapse: collapse;
-			width: 100%;
-		}
-		th{
-			background: goldenrod;
-			color: white;
-		}
-		th, td {
-			text-align: left;
-			padding: 8px;
-		}
-
-		tr:nth-child(even) {background-color: #f2f2f2;}
-
-		tr[data-href]{
-			cursor: pointer;
-		}
-		tr:hover{
-			background-color:#ffcc00;
-		}
-	</style>
-</head>
-<body>
-	<h1>Travel App</h1>
-	<h2>${message}</h2><br>
+<jsp:include page="head.jsp" />
+<link rel="stylesheet" href="<c:url value="/resources/statics/css/TableStyleClick.css" />" type="text/css">
+<jsp:include page="navbar.jsp" />
+<div class="container">
 	<h1>User: ${user.username}</h1>
-	<p>First name: ${user.firstname}</p>
-	<p>Last name: ${user.lastname}</p>
-	<p>Email: ${user.email}</p>
+	<div>First name: ${user.firstname}</div>
+	<div>Last name: ${user.lastname}</div>
+	<div>Email: ${user.email}</div>
 
 
 	<h1>Orders</h1>
@@ -60,10 +32,7 @@
 			</tr>
 		</c:forEach>
 	</table>
-	<form action="/logout" method="post">
-		<input value="Logout" type="submit">
-	</form>
-	<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+</div>
 	<script>
 		$(document).ready(function(){
 			$(document.body).on("click","tr[data-href]",function () {
@@ -71,5 +40,4 @@
 			})
 		})
 	</script>
-</body>
-</html>
+<jsp:include page="footerEndBody.jsp" />

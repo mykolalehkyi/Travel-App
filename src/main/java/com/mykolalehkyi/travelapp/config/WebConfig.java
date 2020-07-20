@@ -2,10 +2,10 @@ package com.mykolalehkyi.travelapp.config;
 
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.web.servlet.config.annotation.EnableWebMvc;
-import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
-import org.springframework.web.servlet.config.annotation.ViewResolverRegistry;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import org.springframework.http.CacheControl;
+import org.springframework.web.servlet.config.annotation.*;
+
+import java.util.concurrent.TimeUnit;
 
 @Configuration
 @EnableWebMvc
@@ -14,6 +14,18 @@ public class WebConfig implements WebMvcConfigurer {
   @Override
   public void configureViewResolvers(ViewResolverRegistry registry) {
     registry.jsp().prefix("/WEB-INF/views/").suffix(".jsp");
+  }
+
+  @Override
+  public void addResourceHandlers(ResourceHandlerRegistry registry) {
+
+    // Register resource handler for CSS and JS
+    registry.addResourceHandler("/resources/**").addResourceLocations("/resources/")
+            .setCacheControl(CacheControl.maxAge(2, TimeUnit.HOURS).cachePublic());
+
+    // Register resource handler for images
+    registry.addResourceHandler("/images/**").addResourceLocations("/WEB-INF/images/")
+            .setCacheControl(CacheControl.maxAge(2, TimeUnit.HOURS).cachePublic());
   }
 
   @Override

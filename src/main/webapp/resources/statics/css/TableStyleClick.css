@@ -1,0 +1,22 @@
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+th{
+    background: #6600cc;
+    color: white;
+}
+th, td {
+    text-align: left;
+    padding: 8px;
+
+}
+
+tr:nth-child(even) {background-color: #f2f2f2;}
+
+tr[data-href]{
+    cursor: pointer;
+}
+tr:hover{
+    background-color:#cc99ff;
+}

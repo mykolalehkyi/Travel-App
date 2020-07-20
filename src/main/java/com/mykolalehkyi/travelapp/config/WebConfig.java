@@ -22,10 +22,6 @@ public class WebConfig implements WebMvcConfigurer {
     // Register resource handler for CSS and JS
     registry.addResourceHandler("/resources/**").addResourceLocations("/resources/")
             .setCacheControl(CacheControl.maxAge(2, TimeUnit.HOURS).cachePublic());
-
-    // Register resource handler for images
-    registry.addResourceHandler("/images/**").addResourceLocations("/WEB-INF/images/")
-            .setCacheControl(CacheControl.maxAge(2, TimeUnit.HOURS).cachePublic());
   }
 
   @Override

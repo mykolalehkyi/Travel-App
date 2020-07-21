@@ -17,10 +17,10 @@ MySQL 8.0.21 https://dev.mysql.com/downloads/installer/
 ```
 
 ### Installing
-
+First, run ```MySQL 8.0.21``` on your OS.
 Use the following maven command to run application.
 ```mvn tomcat7:run``` (This command deploy the webapp from its sources, instead of build war).
-Enter the http://localhost:8080 URL in browser's address bar to test application.
+Enter the http://localhost:8080/travelapp URL in browser's address bar to test application.
 
 ## Built With
 
@@ -36,7 +36,7 @@ Enter the http://localhost:8080 URL in browser's address bar to test application
 *	Maven 3.5.2
 *	Oxygen.1a Release (4.7.1a)
 * Tomcat7 maven plugin 2.2
-*	MySQL Server 8.0
+*	MySQL Server 8.0.21
 *	Taglibs standard 1.1.2
 *	Junit 4.12
 *	Spring security taglibs 5.2.2.RELEASE

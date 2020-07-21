@@ -24,6 +24,7 @@
                 <h2>Login</h2>
                 <p>Please enter your username and password</p>
             </div>
+
             <form id="Login" action='<spring:url value="/loginAction"/>' method="post">
                 <div class="form-group">
                     <input type="text" class="form-control" name="username" placeholder="Username">

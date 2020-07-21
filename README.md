@@ -1,5 +1,4 @@
-#Travel App
-# Project Title
+# Travel App
 
 This application was created for the competition work SoftServe "Travel agency"
 

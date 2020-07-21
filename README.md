@@ -18,8 +18,7 @@ MySQL 8.0.21 https://dev.mysql.com/downloads/installer/
 
 ### Installing
 First, run ```MySQL 8.0.21``` on your OS.
-Use the following maven command to run application.
-```mvn tomcat7:run``` (This command deploy the webapp from its sources, instead of build war).
+Use the following maven command to run application ```mvn tomcat7:run``` (This command deploy the webapp from its sources, instead of build war).
 Enter the http://localhost:8080/travelapp URL in browser's address bar to test application.
 
 ## Built With

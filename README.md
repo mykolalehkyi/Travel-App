@@ -19,7 +19,7 @@ MySQL 8.0.21 https://dev.mysql.com/downloads/installer/
 ### Installing
 
 Use the following maven command to run your application.
-```mvn jetty:run``` (This command deploy the webapp from its sources, instead of build war).
+```mvn tomcat7:run``` (This command deploy the webapp from its sources, instead of build war).
 Enter the http://localhost:8080 URL in browser's address bar to test our application.
 
 ## Built With
@@ -35,7 +35,7 @@ Enter the http://localhost:8080 URL in browser's address bar to test our applica
 *	Java SE 9
 *	Maven 3.5.2
 *	Oxygen.1a Release (4.7.1a)
-*	Jetty Maven plugin 9.4.8
+* Tomcat7 maven plugin 2.2
 *	MySQL Server 8.0
 *	Taglibs standard 1.1.2
 *	Junit 4.12

@@ -9,7 +9,7 @@ Copy project using Git clone
 
 ### Prerequisites
 
-You need to install the software and how to install them
+You need to install the software
 
 ```
 Java SE9 https://www.oracle.com/java/technologies/javase/javase9-archive-downloads.html
@@ -23,56 +23,26 @@ Use the following maven command to run your application.
 ```mvn jetty:run``` (This command deploy the webapp from its sources, instead of build war).
 Enter the http://localhost:8080 URL in browser's address bar to test our application.
 
-## Running the tests
-
-Explain how to run the automated tests for this system
-
-### Break down into end to end tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-### And coding style tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-## Deployment
-
-Add additional notes about how to deploy this on a live system
-
 ## Built With
 
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
 * [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
-
-## Contributing
-
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
-
-## Versioning
-
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
+*	Spring Security 5.0.0.RELEASE
+*	Spring MVC 5.0.2.RELEASE
+*	Spring ORM 5.0.2.RELEASE
+*	Hibernate 5.4.18.Final
+*	C3p0 0.9.5.5 
+*	Servlet API 3.1.0
+*	Common Pool 2.1.1
+*	Java SE 9
+*	Maven 3.5.2
+*	Oxygen.1a Release (4.7.1a)
+*	Jetty Maven plugin 9.4.8
+*	MySQL Server 8.0
+*	Taglibs standard 1.1.2
+*	Junit 4.12
+*	Spring security taglibs 5.2.2.RELEASE
 
 ## Authors
 
-* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
+* **Mykola Lehkyi** 
 
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
-
-## Acknowledgments
-
-* Hat tip to anyone whose code was used
-* Inspiration
-* etc

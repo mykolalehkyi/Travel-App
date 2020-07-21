@@ -8,7 +8,7 @@
     <h1 class="text-center">Management</h1>
     <h5>${resultOperation}</h5><br>
 	<h4>Add hotel form</h4>
-	<form action="/travelapp/management/addHotel" method="post" class="form-group">
+	<form action="<c:url value='/management/addHotel' />" method="post" class="form-group">
     <table>
       <tr>
         <td>Hotel name</td>
@@ -32,7 +32,7 @@
   </form>
   <br/>
     <h4>Add hotel room form</h4>
-    <form action="/travelapp/management/addHotelRoom" method="post" class="form-group">
+    <form action="<c:url value='/management/addHotelRoom' />" method="post" class="form-group">
         <table>
             <tr>
                 <td>Select to which hotel add room</td>

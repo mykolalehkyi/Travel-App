@@ -17,7 +17,7 @@
 </head>
 <body id="LoginForm">
 <div class="container" >
-    <a href="/"><img style="height: 50px; width: 50px;vertical-align:middle;" src="<c:url value="/resources/statics/images/plane.gif" />" alt=""><h2 style="display: inline-block;vertical-align:middle;" class="form-heading">Travel App</h2></a>
+    <a href="<c:url value='/' />"><img style="height: 50px; width: 50px;vertical-align:middle;" src="<c:url value="/resources/statics/images/plane.gif" />" alt=""><h2 style="display: inline-block;vertical-align:middle;" class="form-heading">Travel App</h2></a>
     <div class="login-form">
         <div class="main-div">
             <div class="panel">

@@ -11,7 +11,7 @@
 		<label for="hotelName">Write hotel name:</label>
 		<input type="text" placeholder="Write hotel name" name="hotelName" id ="hotelName" class="form-control">
 		<label for="country">	Choose a country:</label>
-		<select name="country" id="country" class="fo	rm-control">
+		<select name="country" id="country" class="form-control">
 			<option value=""></option>
 			<c:forEach items="${countries}" var="country">
 					<option value='<c:out value="${country}"/>'>${country}</option>
